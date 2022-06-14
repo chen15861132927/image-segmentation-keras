@@ -1,8 +1,8 @@
 from keras.models import *
 from keras.layers import *
 import keras.backend as K
-import keras
 import tensorflow as tf
+from tensorflow import keras
 from .config import IMAGE_ORDERING
 
 BASE_WEIGHT_PATH = ('https://github.com/fchollet/deep-learning-models/'
