@@ -94,6 +94,7 @@ def train(model,
           custom_augmentation=None,
           other_inputs_paths=None,
           preprocessing=None,
+          isShowSummery=False,
           read_image_type=1  # cv2.IMREAD_COLOR = 1 (rgb),
                              # cv2.IMREAD_GRAYSCALE = 0,
                              # cv2.IMREAD_UNCHANGED = -1 (4 channels like RGBA)
@@ -205,7 +206,8 @@ def train(model,
 
     if callbacks is None:
         callbacks = []
-
+    if isShowSummery:
+        model.summary()
     if not validate:
         model.fit(train_gen, steps_per_epoch=steps_per_epoch,
                   epochs=epochs, callbacks=callbacks, initial_epoch=initial_epoch)
