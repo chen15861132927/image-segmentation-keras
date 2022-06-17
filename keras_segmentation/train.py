@@ -63,7 +63,7 @@ class CheckpointsCallback(Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         if self.checkpoints_path is not None:
-            self.model.save_weights(self.checkpoints_path + "." + str(epoch)+".{logs[accuracy]:.03f}")
+            self.model.save_weights(self.checkpoints_path + "." + str(epoch)+".{logs[accuracy]:.06f}.{logs[val_accuracy]:.06f}")
             print("saved ", self.checkpoints_path + "." + str(epoch))
 
 
@@ -192,7 +192,7 @@ def train(model,
 
     if callbacks is None and (not checkpoints_path is  None) :
         default_callback = ModelCheckpoint(
-                filepath=checkpoints_path + ".{epoch:05d}.{accuracy:.06f}",
+                filepath=checkpoints_path + ".{epoch:05d}.{accuracy:.06f}.{val_accuracy:.06f}",
                 save_weights_only=True,
                 verbose=True
             )
