@@ -63,7 +63,7 @@ class CheckpointsCallback(Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         if self.checkpoints_path is not None:
-            self.model.save_weights(self.checkpoints_path + "." + str(epoch)+".{logs[accuracy]:.06f}.{logs[val_accuracy]:.06f}")
+            self.model.save_weights(self.checkpoints_path + "." + str(epoch)+"."+str(logs['accuracy'])+"."+str(logs['val_accuracy']))
             print("saved ", self.checkpoints_path + "." + str(epoch))
 
 
