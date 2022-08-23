@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from .config import IMAGE_ORDERING
 from ..train import train
-from ..predict import predict, predict_multiple, evaluate
+from ..predict import predict_segmentation,predict, predict_multiple, evaluate
 
 
 # source m1 , dest m2
