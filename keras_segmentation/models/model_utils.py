@@ -98,7 +98,7 @@ def get_segmentation_model(input, output):
     model.model_name = ""
 
     model.train = MethodType(train, model)
-    model.predict_segmentation = MethodType(predict, model)
+    model.predict_segmentation = MethodType(predict_segmentation, model)
     model.predict_multiple = MethodType(predict_multiple, model)
     model.evaluate_segmentation = MethodType(evaluate, model)
 
